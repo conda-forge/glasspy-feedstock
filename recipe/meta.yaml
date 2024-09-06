@@ -1,5 +1,5 @@
 {% set name = "glasspy" %}
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/glasspy-{{ version }}.tar.gz
-  sha256: d8adf1f8cd44fe1b1bcac7426b42af437e55c2cf53c51c29237d5399b248b6f8
+  sha256: 0a73632f93aaf4e585777268d3fc4578ee77f3149a28a8ef67e987b161e7c02b
 
 build:
   noarch: python
