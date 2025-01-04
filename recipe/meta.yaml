@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "glasspy" %}
 {% set version = "0.5.3" %}
 
@@ -6,21 +7,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/glasspy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/glasspy-{{ version }}.tar.gz
   sha256: 0a73632f93aaf4e585777268d3fc4578ee77f3149a28a8ef67e987b161e7c02b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
     - requests
-    - python >=3.10
+    - python >={{ python_min }}
     - pandas >=2.0.0
     - lmfit >=1.2.0
     - chemparse >=0.1.0
@@ -37,6 +39,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/drcassar/glasspy
