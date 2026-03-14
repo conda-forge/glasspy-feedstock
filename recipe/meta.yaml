@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "glasspy" %}
-{% set version = "0.5.3" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/glasspy-{{ version }}.tar.gz
-  sha256: 0a73632f93aaf4e585777268d3fc4578ee77f3149a28a8ef67e987b161e7c02b
+  sha256: 777423bb6ec8cb6262426e3c6e0e9506aa53e2ccb74540f5e1c349bdd8e62b79
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,16 +21,18 @@ requirements:
     - pip
     - setuptools
   run:
-    - requests
+    - joblib >=1.5.0
+    - onnxruntime >=1.23
+    - requests >=2.30.0
     - python >={{ python_min }}
     - pandas >=2.0.0
     - lmfit >=1.2.0
     - chemparse >=0.1.0
     - scikit-learn >=1.5.0
     - compress-pickle >=2.1.0
-    - pytorch
+    - pytorch >=2.0.0
     - lightning >=2.1.0
-    - platformdirs
+    - platformdirs >=4.5.1
 
 test:
   imports:
