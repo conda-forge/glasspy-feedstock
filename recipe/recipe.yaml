@@ -3,7 +3,7 @@ schema_version: 1
 context:
   python_min: "3.11"
   name: glasspy
-  version: "0.6.0"
+  version: "0.6.1"
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/glasspy-${{ version }}.tar.gz
-  sha256: 777423bb6ec8cb6262426e3c6e0e9506aa53e2ccb74540f5e1c349bdd8e62b79
+  sha256: 3380a3fd24177dfec40c7bcbe6215ea17eae93a6b5e948ec865dada845f2ed9b
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
